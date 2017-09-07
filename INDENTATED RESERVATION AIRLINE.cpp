@@ -15,6 +15,9 @@ class flight
   int del;
   int seats[30], i;
   bool is_booked;
+  char fullname[20];
+  char flightname[20],source[20],arrival[20];
+  float date, time, Fno1;
   public:
 
 
@@ -29,7 +32,7 @@ class flight
 
 void flight::trending()
 { system("cls");
-cout << "\n                  iAviS News Block";
+cout << "\n                  Labeeb's News Block";
 cout << "\n                 -------------------";
 cout << "\n";
 cout << "\nAIR INDIA GOES PURE VEGETARIAN";
@@ -79,33 +82,14 @@ system("pause 5");
 
 void flight::boardingPass()
 {
-char fullname[20];
-  char flightname[20],source[20],arrival[20];
-  float date, time, Fno1;
+
 cout << "\n";
-cout << "\n             GREETINGS PASSENGER! ";
+
 cout << "\n";
 cout << "\n";
-cout << "\nPlease enter your full name (In block letters):- ";
-gets(fullname);
-cout<<"\nEnter flight number:- ";
-cin>>Fno1;
-cout << "\nEnter flight name:- ";
-gets(flightname);
-cout << "\nEnter Date of departure(In 00.00 format):- ";
-cin >> date;
-cout << "\nEnter time of departure(In 00.00 format):- ";
-cin >> time;
-cout << "\nEnter Place of departure:- ";
-gets(source);
-cout << "\nEnter place of arrival:- ";
-gets(arrival);
+ system("sleep 2");
 cout << "\n";
-cout << "\nThe boarding pass will only be accepted in the check-in counter,";
-cout << "\nafter a seat has been booked.";
-cout << "\nTo book a seat please head back to the MAIN MENU";
 cout << "\n";
-system("pause 5");
 system("cls");
 cout << "\n";
 cout << "\n--------------------------------------------------------------";
@@ -113,15 +97,15 @@ cout << "\n                      BOARDING PASS"<<endl;
 cout << "\nAIRLINE: ";
 puts(flightname);
 cout << "\n";
-cout << "\nPASSENGER NAME: "; puts(fullname);
+cout << "\nPASSENGER NAME: "; puts(name);
 
-cout << "\nSOURCE: "; puts(source);
+cout << "\nSOURCE: "; puts(departure);
 
-cout << "\nDESTINATION: "; puts(arrival);
+cout << "\nDESTINATION: "; puts(destination);
 
 cout << "\nCLASS:             ECONOMY";
 cout << "\nDATE OF DEPARTURE: "<<date<<"      TIME OF DEPARTURE: "<<time;
-cout << "\nFLIGHT NUMBER:     "<<Fno1<<"     GATE NUMBER:        2";
+cout << "\nFLIGHT NUMBER:     "<<Fno  <<"     GATE NUMBER:        2";
 cout << "\n--------------------------------------------------------------";
 cout << "\n";
 cout << "\nPLEASE PRINT THE BOARDING PASS FOR THE DAY OF TRAVEL";
@@ -130,10 +114,9 @@ cout << "\nTHIS BOARDING PASS IS ISSUED WITH THE PROVIDED INFORMATION";
 
 cout << "\nIT SHOULD BE KEPT IN MIND THAT A BOARDING PASS WILL STAND INVALID,";
 cout << "\nIF IT HAS BEEN ISSUED USING UNFAIR MEANS.";
-cout << "\nFROM ALL OF US AT iAviS. WE WISH YOU A PLEASANT JOURNEY";
+cout << "\nFROM ALL OF US AT Labeeb's. WE WISH YOU A PLEASANT JOURNEY";
 cout << "\nTHANK YOU AND HAVE A NICE DAY";
 cout << "\n";
-system("pause 5");
 }
 
 
@@ -142,7 +125,7 @@ void flight::displayMessage ()
 { system("cls");
   cout << "\nRequest Processed.";
   cout << "\nBooking Cancelled";
-  cout <<"\nThanks for choosing iAviS Aviaton Services ~ Labeeb (CEO, iAviS)";
+  cout <<"\nThanks for choosing Labeeb's Aviaton Services ~ Labeeb (CEO, Labeeb's)";
   cout << "\n";
   system("pause 5");
 }
@@ -175,8 +158,16 @@ void flight::seatCheck ()
   {
     cout << "\nYour Seat Has Been Booked Succesfully";
     cout << "\nPlease view your boarding pass from the MAIN MENU";
-    cout << "\nFrom all of us in iAviS, We wish you a pleasant and comfortable journey.";
+    cout << "\nFrom all of us in Labeeb's, We wish you a pleasant and comfortable journey.";
     cout << "\n";
+    system("pause");
+    cout << "\nYou can now print a boarding pass.";
+    cout << "\nThank you for your co-operation.";
+    cout << "\n";
+
+    system("pause 5");
+
+    boardingPass();
   }
   else
   {
@@ -191,7 +182,7 @@ void flight::deleteTicket ()
   is_booked = true;
 char delname[20];
 int  delres, delfno;
-cout << "\nWELCOME TO iAviS Aviation services.";
+cout << "\nWELCOME TO Labeeb's Aviation services.";
 cout << "\n";
 cout << "\nPlease enter your name:- ";
 gets(delname);
@@ -221,7 +212,7 @@ if(is_booked == false)
 {
 cout << "\nSeat reservation has been deleted successfully";
 cout << "\nIf boarding pass has been issued, it stands invalid";
-cout << "\nThanks for choosing iAviS aviation services.";
+cout << "\nThanks for choosing Labeeb's aviation services.";
 }
 else
 {
@@ -366,7 +357,7 @@ void flight::viewSchedule()
 void flight::bookTicket ()   //renaming to better describe function. always try to name your functions and variables such that
 {                            //anyone can read and understand what is being done
   int ch1;
-  cout << "\nENTER PASSENGER'S NAME:- ";
+  cout << "\nENTER PASSENGER'S FULL NAME:- ";
   gets (name);
   cout << "\n";
   cout << "\nEnter inquired details of selected flight below in BOLD letters.";
@@ -374,10 +365,16 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
   cin >> Sno;
   cout << "\nEnter Flight Number:- ";
   cin >> Fno;
+  cout << "\nEnter flight name:- ";
+  gets(flightname);
   cout << "\nEnter place of departure:- ";
   gets (departure);
   cout << "\nEnter place of arrival:- ";
   gets (destination);
+  cout << "\nEnter Date of departure (Day.Month format):- ";
+  cin >> date;
+  cout << "\nEnter time of departure (Hours.Minutes format):- ";
+  cin >> time;
   switch (Sno)  //better to use a switch here, as it is faster to evaluate than if-else conditions.
   {
       case 1:
@@ -398,8 +395,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
   case 2:
 
       cout << "\nFLIGHT NUMBER H435 - JET AIRWAYS";
-      cout <<
-"\nWould you like to book this flight?(TYPE 1 FOR YES|| TYPE 2 FOR NO) :- ";
+      cout << "\nWould you like to book this flight?(TYPE 1 FOR YES|| TYPE 2 FOR NO) :- ";
       cin >> ch1;
       if (ch1 == 1)
       {
@@ -886,10 +882,10 @@ system("cls");
   flight f1;  //using a more intutive name for object. if you have a second person trying to book flight, you can easily create more
 
   cout << '\a';
-  cout << "\n                       WELCOME TO iAviS AVIATION SERVICE's,";
+  cout << "\n                       WELCOME TO Labeeb's AVIATION SERVICE's,";
   cout << "\n                       AIRLINE / FLIGHT RESERVATION SYSTEM  ";
   cout << "\n                       -----------------------------------   ";
-  cout << "\n                     MY NAME IS LABS, I'AM THE iAviS HELPER BOT.";
+  cout << "\n                     MY NAME IS LABS, I'AM Labeeb's HELPER BOT.";
   cout << "\n                     GREETINGS TO YOU, VALUABLE CUSTOMER.";
 
   cout << "\n";
@@ -897,17 +893,16 @@ system("cls");
   
   cout << "\n";
 
-  cout << "\niAviS/All Rights Reserved.";
+  cout << "\nLabeeb's/All Rights Reserved.";
   cout << "\n";
   cout << "\nMAIN MENU";
   cout << "\nPLEASE CHOOSE YOUR REQUIRED OPERATION:- ";
   cout << "\n";
   cout << "\n1. VIEW SCHEDULE & BOOK TICKET ";
-  cout << "\n2. PRINT BOARDING PASS ";
-  cout << "\n3. DELETE TICKET";
-  cout << "\n4. TRENDING NEWS";
-  cout << "\n5. EXIT" << endl;
-  cout << "\nYOUR CHOICE (1/2/3/4/5):-";
+  cout << "\n2. DELETE TICKET";
+  cout << "\n3. TRENDING NEWS";
+  cout << "\n4. EXIT" << endl;
+  cout << "\nYOUR CHOICE (Enter one of these numbers /1/2/3/4):-";
   cin >> option;
   switch (option)
   {
@@ -918,28 +913,22 @@ system("cls");
       break;
 
     case 2:
-       f1.viewSchedule();
-       f1.boardingPass();
-
-       break;
-
-    case 3:
        f1.deleteTicket();
 
        break;
 
-    case 4:
+    case 3:
       f1.trending();
 
        break;
 
-    case 5:
+    case 4:
 
       return 0;
 
     default:
       cout<< "\nInvalid Input!";
-      
+
   }
   }while(option);
 
