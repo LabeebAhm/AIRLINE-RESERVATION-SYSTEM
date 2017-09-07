@@ -899,10 +899,11 @@ system("cls");
   cout << "\nPLEASE CHOOSE YOUR REQUIRED OPERATION:- ";
   cout << "\n";
   cout << "\n1. VIEW SCHEDULE & BOOK TICKET ";
-  cout << "\n2. DELETE TICKET";
-  cout << "\n3. TRENDING NEWS";
-  cout << "\n4. EXIT" << endl;
-  cout << "\nYOUR CHOICE (Enter one of these numbers /1/2/3/4):-";
+  cout << "\n2. PRINT BOARDING PASS";
+  cout << "\n3. DELETE TICKET";
+  cout << "\n4. TRENDING NEWS";
+  cout << "\n5. EXIT" << endl;
+  cout << "\nYOUR CHOICE (Enter one of these numbers 1/2/3/4/5):-";
   cin >> option;
   switch (option)
   {
@@ -911,18 +912,23 @@ system("cls");
       f1.bookTicket();
 
       break;
-
+   
     case 2:
+      f1.boardingPass();
+      
+       break;
+      
+    case 3:
        f1.deleteTicket();
 
        break;
 
-    case 3:
+    case 4:
       f1.trending();
 
        break;
 
-    case 4:
+    case 5:
 
       return 0;
 
