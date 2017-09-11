@@ -23,7 +23,7 @@ class flight
 
   void viewSchedule ();//DONE
   void bookTicket (); //DONE
-  void seatCheck ();  //DONE
+  void seatAvailabilty ();  //DONE
   void deleteTicket (); //DONE
   void boardingPass (); //DONE
   void displayMessage(); //DONE
@@ -32,6 +32,7 @@ class flight
 
 void flight::trending()
 { system("cls");
+
 cout << "\n                  Labeeb's News Block";
 cout << "\n                 -------------------";
 cout << "\n";
@@ -42,6 +43,9 @@ cout << "\nthat only vegetarian food wll be served to its passengers travelling"
 cout << "\nwithin the country. This decision came as a shock to the passengers,";
 cout << "\nwith many taking hilarious digs on the already debted Airline network";
 cout << "\non social media.";
+cout << "\n";
+cout << "\nPress N for next article... ";
+_getch();
 cout << "\n";
 cout << "\nVISERION - A DESERVING & HUGE COMEBACK";
 cout << "\n--------------------------------------";
@@ -54,6 +58,9 @@ cout << "\nfor the proud owners who now are rapidly expanding the buisness.";
 cout << "\nThis enormous comeback shows that viserion is back to give a tough ";
 cout << "\ntime to its competitors";
 cout << "\n";
+cout << "\nPress N for next article... ";
+_getch();
+cout << "\n";
 cout << "\nAIR INDIA TO BE PRIVATISED SOON";
 cout << "\n-------------------------------";
 cout << "\nNow, the current NDA government has embarked on another attempt to";
@@ -63,15 +70,19 @@ cout << "\ntried to privatise the heavily debted airline but A mix of political"
 cout << "\ntentativeness, bureaucratic red tape, and smart lobbying by rivals put";
 cout << "\n paid to that, though.";
 cout << "\n";
+cout << "\nPress N for next article... ";
+_getch();
+cout << "\n";
 cout << "\nAFTER SPICE JET, INDIGO TO HIKE EXCESS BAGGAGE FEE";
 cout << "\n--------------------------------------------------";
 cout << "\nIndia's largest domestic airline, IndiGo, has hiked its excess baggage";
-cout << "\ncharges for domestic flyers checking-in more than 15 kg. This move comes";
+cout << "\ncharges for domestic flyers Availabiltying-in more than 15 kg. This move comes";
 cout << "\nafter an initiative taken by Spice Jet to hike excess baggage fee.";
 cout << "\nIndiGo, which controls 40 per cent of domestic market share, hike is";
 cout << "\nsimilar to the increase in baggage charges implemented by SpiceJet";
 cout << "\nfrom Friday. The two airlines together account for 53 per cent of domestic market share.";
 cout << "\n";
+
 system("pause 5");
 }
 
@@ -82,15 +93,20 @@ system("pause 5");
 
 void flight::boardingPass()
 {
+ system("color 20");
 
 cout << "\n";
 
 cout << "\n";
 cout << "\n";
- system("sleep 2");
+
 cout << "\n";
 cout << "\n";
 system("cls");
+cout << "\nLoading...";
+sleep(2);
+cout << "\n";
+cout << "\nLoaded boarding pass.";
 cout << "\n";
 cout << "\n--------------------------------------------------------------";
 cout << "\n                      BOARDING PASS"<<endl;
@@ -108,6 +124,11 @@ cout << "\nDATE OF DEPARTURE: "<<date<<"      TIME OF DEPARTURE: "<<time;
 cout << "\nFLIGHT NUMBER:     "<<Fno  <<"     GATE NUMBER:        2";
 cout << "\n--------------------------------------------------------------";
 cout << "\n";
+sleep(1);
+cout << "\n";
+cout << "\nTHE BOARDING PASS WILL SHOW VALID INFORMATION ONLY IF SEAT HAS BEEN BOOKED";
+cout << "\nTO BOOK A SEAT HEAD BACK TO MAIN MENU.";
+cout << "\n";
 cout << "\nPLEASE PRINT THE BOARDING PASS FOR THE DAY OF TRAVEL";
 
 cout << "\nTHIS BOARDING PASS IS ISSUED WITH THE PROVIDED INFORMATION";
@@ -117,12 +138,14 @@ cout << "\nIF IT HAS BEEN ISSUED USING UNFAIR MEANS.";
 cout << "\nFROM ALL OF US AT Labeeb's. WE WISH YOU A PLEASANT JOURNEY";
 cout << "\nTHANK YOU AND HAVE A NICE DAY";
 cout << "\n";
+system("pause 5");
 }
 
 
 
 void flight::displayMessage ()
 { system("cls");
+
   cout << "\nRequest Processed.";
   cout << "\nBooking Cancelled";
   cout <<"\nThanks for choosing Labeeb's Aviaton Services ~ Labeeb (CEO, Labeeb's)";
@@ -132,7 +155,7 @@ void flight::displayMessage ()
 
 
 
-void flight::seatCheck ()
+void flight::seatAvailabilty ()
 {
    is_booked = false;
 
@@ -143,13 +166,13 @@ void flight::seatCheck ()
 
   for (i = 0; i < 30; i++)
   {
-    if (seats[i] == 1)  //continue checking array until you find an unbooked seat
+    if (seats[i] == 1)
     {
       continue;
     }
     else
     {
-      seats [i] = 1;   //once you find an emoty seat, book it and break out of loop. you don't need to continue loop and hence waste runtime
+      seats [i] = 1;
       is_booked = true;
       break;
     }
@@ -158,7 +181,7 @@ void flight::seatCheck ()
   {
     cout << "\nYour Seat Has Been Booked Succesfully";
     cout << "\nPlease view your boarding pass from the MAIN MENU";
-    cout << "\nFrom all of us in Labeeb's, We wish you a pleasant and comfortable journey.";
+    cout << "\nFrom all of us at Labeeb's, We wish you a pleasant and comfortable journey.";
     cout << "\n";
     system("pause");
     cout << "\nYou can now print a boarding pass.";
@@ -232,130 +255,132 @@ system("pause 5");
 
 void flight::viewSchedule()
 {
-  cout << "\nLIST OF AVAILABLE FLIGHTS:-";
+  cout << "\nLOADING LIST OF AVAILABLE FLIGHTS:-";
   cout <<
     "\nS.No F.NO    F. NAME             FROM      DESTINATION    TIME   DATE  ";
   cout <<
     "\n-----------------------------------------------------------------------";
   cout <<
     "\n1    2342.   JET AIRWAYS         BANGALORE  BBSR          12:30  14/07";
-           
+    sleep(0);
   cout <<
     "\n2    2435.   JET AIRWAYS         NEW DELHI  RANCHI        17:35  12/07";
-    
+    sleep(0);
   cout <<
     "\n3    3646.   AIR ASIA            BBSR       BENGALURU     17:45  17/07";
-    
+    sleep(0);
   cout <<
     "\n4    3078.   AIR ASIA            PATNA      MUMBAI        00:15  20/07";
-    
+    sleep(0);
   cout <<
     "\n5    4534.   AIR INDIA           MUMBAI     PATNA         15:15  27/07";
-    
+    sleep(0);
   cout <<
     "\n6    4435.   AIR INDIA           RANCHI     NEW DELHI     15:45  29/07";
-    
+    sleep(1);
   cout <<
     "\n7    5443.   SPICE JET           TRIVANDRUM AHMEDABAD     23:40  12/08";
-    
+    sleep(0);
   cout <<
     "\n8    6557.   INDIGO              AHMEDABAD  TRIVANDRUM    05:16  31/07";
-    
+    sleep(0);
   cout <<
     "\n9    7231.   VISTARA             MUMBAI     BANGALORE     18:00  23/07";
-    
+    sleep(1);
   cout <<
     "\n10   7123.   VISTARA             BANGALORE  MUMBAI        06:45  23/07";
-    
+    sleep(0);
   cout <<
     "\n11   6652.   INDIGO              BBSR       KOLKATA       18:20  28/07";
-    
+    sleep(0);
   cout <<
     "\n12   4412.   AIR INDIA           NEW DELHI  JAIPUR        03:10  25/07";
-    
+    sleep(1);
   cout <<
     "\n13   6256.   INDIGO              KOLKATA    BHUBANESWAR   04:50  02/08";
-    
+    sleep(0);
   cout <<
     "\n14   4214.   AIR INDIA           NEW DELHI  KOLKATA       09:15  02/08";
-    
+    sleep(0);
   cout <<
     "\n15   4839.   AIR INDIA           NEW DELHI  MUMBAI        19:15  06/08";
-    
+    sleep(0);
   cout <<
     "\n16   2786.   JET AIRWAYS         JAIPUR     NEW DELHI     21:55  05/08";
-    
+    sleep(1);
   cout <<
     "\n17   6324.   INDIGO              KOLKATA    NEW DELHI     09:15  02/08";
-    
+    sleep(0);
   cout <<
     "\n18   5432.   SPICE JET           MUMBAI     NEW DELHI     23:50  09/08";
-    
+    sleep(0);
   cout <<
     "\n19   4675.   AIR INDIA           BENGALURU  CHENNAI       00:35  18/09";
-    
+    sleep(1);
   cout <<
     "\n20   4576.   AIR INDIA           CHENNAI    BENGALURU     12:30  19/09";
-    
+    sleep(0);
   cout <<
     "\n21   6938.   INDIGO              PUDUCHERRY MANGALORE     13:05  12/09";
-    
+    sleep(0);
   cout <<
     "\n22   6109.   INDIGO              MANGALORE  PUDUCHERRRY   03:25  16/09";
-    
+    sleep(1);
   cout <<
     "\n23   7456.   VISTARA             HYDERABAD  AMRITSAR      14:50  12/08";
-    
+    sleep(0);
   cout <<
     "\n24   4354.   AIR INDIA           NEW DELHI  SHIMLA        12:35  15/08";
-    
+    sleep(0);
   cout <<
     "\n25   2323.   JET AIRWAYS         SHIMLA     NEW DELHI     23:40  15/08";
-    
+    sleep(1);
   cout <<
     "\n26   2675.   JET AIRWAYS         MUMBAI     AMRITSAR      12:35  12/09";
-    
+    sleep(0);
   cout <<
     "\n27   5477.   SPICE JET           NEW DELHI  SRINAGAR      05:15  23/08";
-    
+    sleep(0);
   cout <<
     "\n28   4343.   AIR INDIA           SRINAGAR   NEW DELHI     00:55  30/09";
-    
+    sleep(0);
   cout <<
     "\n29   4487.   AIR INDIA           PATNA      RANCHI        23:45  23/09";
-    
+    sleep(0);
   cout <<
     "\n30   7222.   VISTARA             RANCHI     PATNA         11:25  14/10";
-    
+    sleep(0);
   cout <<
     "\n31   5254.   SPICE JET           BHOPAL     DEHRADUN      12:45  14/10";
-    
+    sleep(0);
   cout <<
     "\n32   5212.   SPICE JET           DEHRADUN   RANCHI        16:15  17/10";
-    
+    sleep(1);
   cout <<
     "\n33   6879.   INDIGO              RANCHI     DEHRADUN      21:30  20/09";
-    
+    sleep(0);
   cout <<
     "\n34   6546.   INDIGO              DEHRADUN   BHOPAL        22:35  30/09";
-    
+    sleep(1);
   cout << "\n";
   cout <<
     "\n35   1485.   VISERION            NEW DELHI  BANGALORE     00:00  25/07";
   cout << "\n              [EXCLUSIVE LUXURY ONE-ROUTE AIRLINE]";
-  
+  sleep(0);
   cout << "\n";
   cout <<
     "\n36   1485.   VISERION            BANGALORE  NEW DELHI     12:00  25/07";
   cout << "\n              [EXCLUSIVE LUXURY ONE-ROUTE AIRLINE]";//36 FLIGHTS
-  
+
   cout << "\n";
+  cout << "\nLoading..... ";
+    sleep(2);
   cout << "\n";
 }
 
 
-void flight::bookTicket ()   //renaming to better describe function. always try to name your functions and variables such that
-{                            //anyone can read and understand what is being done
+void flight::bookTicket ()
+{ system("color CF");
   int ch1;
   cout << "\nENTER PASSENGER'S FULL NAME:- ";
   gets (name);
@@ -375,7 +400,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
   cin >> date;
   cout << "\nEnter time of departure (Hours.Minutes format):- ";
   cin >> time;
-  switch (Sno)  //better to use a switch here, as it is faster to evaluate than if-else conditions.
+  switch (Sno)
   {
       case 1:
       cout << "\nFLIGHT NUMBER H342 - JET AIRWAYS";
@@ -383,12 +408,12 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
   {
-    seatCheck();       //you don't need to call this function with an object context. as we are already bound to f1 object at this point (through main)
+    seatAvailabilty();
   }
   else if (ch1 == 2)
   {
-    displayMessage();  //try to break up repeating components of your code
-                       //into blocks(or modules) which can be called again and again instead of retyping the code multiple times
+    displayMessage();
+
   }
   break;
 
@@ -399,7 +424,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -412,7 +437,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -427,7 +452,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -442,7 +467,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -456,7 +481,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -469,7 +494,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -482,7 +507,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -495,7 +520,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -508,7 +533,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -521,7 +546,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -534,7 +559,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -547,7 +572,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -560,7 +585,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -573,7 +598,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -586,7 +611,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -599,7 +624,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -612,7 +637,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -625,7 +650,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-        seatCheck();
+        seatAvailabilty();
       }
       else if (ch1 == 2)
       {
@@ -638,7 +663,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -651,7 +676,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -664,7 +689,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -677,7 +702,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -690,7 +715,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -703,7 +728,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -716,7 +741,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -729,7 +754,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -742,7 +767,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -755,7 +780,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -768,7 +793,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -781,7 +806,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -794,7 +819,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -807,7 +832,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -820,7 +845,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
       cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -838,7 +863,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
          cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -856,7 +881,7 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
          cin >> ch1;
       if (ch1 == 1)
       {
-         seatCheck();
+         seatAvailabilty();
          }
       else if (ch1 == 2)
       {
@@ -876,7 +901,9 @@ void flight::bookTicket ()   //renaming to better describe function. always try 
 
 int main (){
 int option;
-do { cout << "\n";
+do {
+ system("color F9");
+cout << "\n";
 system("cls");
 
   flight f1;  //using a more intutive name for object. if you have a second person trying to book flight, you can easily create more
@@ -939,6 +966,4 @@ system("cls");
   }while(option);
 
   getch ();
-  }
-
-
+}
